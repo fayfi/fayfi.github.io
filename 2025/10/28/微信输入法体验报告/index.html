@@ -1,0 +1,365 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>微信输入法体验报告 | 菲菲的博客</title><meta name="author" content="菲菲"><meta name="copyright" content="菲菲"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="微信输入法体验报告产品背景近期，随着豆包输入法等竞品携AI功能开启内测，输入法赛道再次受到关注。我个人在深度使用微信输入法后，发现其 “多端同步” 功能以纯软件方式，出色地解决了困局多年的行业痛点。 以此为契机，我观察到各大厂商正纷纷以输入法为“切口”进行战略布局，尤其是将其作为AI功能落地、降低用户使用门槛的核心场景。 这促使我思考：在AI时代，小小的输入法，正承载着怎样的大厂战略布局？ 本文章">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信输入法体验报告">
+<meta property="og:url" content="https://sanlili.github.io/2025/10/28/%E5%BE%AE%E4%BF%A1%E8%BE%93%E5%85%A5%E6%B3%95%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:site_name" content="菲菲的博客">
+<meta property="og:description" content="微信输入法体验报告产品背景近期，随着豆包输入法等竞品携AI功能开启内测，输入法赛道再次受到关注。我个人在深度使用微信输入法后，发现其 “多端同步” 功能以纯软件方式，出色地解决了困局多年的行业痛点。 以此为契机，我观察到各大厂商正纷纷以输入法为“切口”进行战略布局，尤其是将其作为AI功能落地、降低用户使用门槛的核心场景。 这促使我思考：在AI时代，小小的输入法，正承载着怎样的大厂战略布局？ 本文章">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://sanlili.github.io/img/product/wechat/main.jpg">
+<meta property="article:published_time" content="2025-10-28T13:48:08.808Z">
+<meta property="article:modified_time" content="2025-10-29T15:05:01.290Z">
+<meta property="article:author" content="菲菲">
+<meta property="article:tag" content="菲菲,博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sanlili.github.io/img/product/wechat/main.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "微信输入法体验报告",
+  "url": "https://sanlili.github.io/2025/10/28/%E5%BE%AE%E4%BF%A1%E8%BE%93%E5%85%A5%E6%B3%95%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A/",
+  "image": "https://sanlili.github.io/img/product/wechat/main.jpg",
+  "datePublished": "2025-10-28T13:48:08.808Z",
+  "dateModified": "2025-10-29T15:05:01.290Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "菲菲",
+      "url": "https://sanlili.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://sanlili.github.io/2025/10/28/%E5%BE%AE%E4%BF%A1%E8%BE%93%E5%85%A5%E6%B3%95%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 菲菲","link":"链接: ","source":"来源: 菲菲的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '微信输入法体验报告',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.0.0"></head><body><div id="web_bg" style="background-image: url(/url(/img/bg.jpg));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/product/wechat/main.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">菲菲的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">微信输入法体验报告</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">微信输入法体验报告</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-28T13:48:08.808Z" title="发表于 2025-10-28 21:48:08">2025-10-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-29T15:05:01.290Z" title="更新于 2025-10-29 23:05:01">2025-10-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%A7%E5%93%81/">产品</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="微信输入法体验报告"><a href="#微信输入法体验报告" class="headerlink" title="微信输入法体验报告"></a>微信输入法体验报告</h1><h2 id="产品背景"><a href="#产品背景" class="headerlink" title="产品背景"></a>产品背景</h2><p>近期，随着豆包输入法等竞品携AI功能开启内测，输入法赛道再次受到关注。我个人在深度使用微信输入法后，发现其 “多端同步” 功能以纯软件方式，出色地解决了困局多年的行业痛点。</p>
+<p>以此为契机，我观察到各大厂商正纷纷以输入法为“切口”进行战略布局，尤其是将其作为AI功能落地、降低用户使用门槛的核心场景。</p>
+<p>这促使我思考：<strong>在AI时代，小小的输入法，正承载着怎样的大厂战略布局？</strong></p>
+<p>本文章主要在基于个人体验，分析微信输入法的产品功能、交互体验与潜在战略意图，我后续也会继续分析其他输入法的产品功能与交互体验。</p>
+<h2 id="市场与用户分析"><a href="#市场与用户分析" class="headerlink" title="市场与用户分析"></a>市场与用户分析</h2><h3 id="商业模式"><a href="#商业模式" class="headerlink" title="商业模式"></a>商业模式</h3><p>  目前产品形态为免费工具。推测其现阶段的核心目标并非商业变现，而是扩大市场份额、收集用户反馈、完善产品体验，并为微信生态的其他服务（如AI问答、内容推荐）引流。</p>
+<h3 id="目标用户"><a href="#目标用户" class="headerlink" title="目标用户"></a>目标用户</h3><ol>
+<li>微信生态重度用户： 强烈依赖PC和手机等多设备协作，对剪贴板同步、聊天记录同步有刚需的用户。</li>
+<li>效率与AI追求者： 被便捷的AI助手、语音转文字、智能推荐等高效功能所吸引的用户。</li>
+</ol>
+<h2 id="产品功能与交互体验"><a href="#产品功能与交互体验" class="headerlink" title="产品功能与交互体验"></a>产品功能与交互体验</h2><p>通过对产品功能的梳理，我将其逻辑归纳为四大模块：</p>
+<ol>
+<li><p>基础输入类： 负责保障稳定、全面的基础输入体验，亮点包括支持方言的语音识别和带拼音的手写找字。</p>
+</li>
+<li><p>效率工具类： 以“跨设备同步”（剪贴板、词库）为主要功能，解决多端协作痛点，构建产品核心竞争力。</p>
+</li>
+<li><p>智能辅助类： 集中体现AI布局（如接入DeepSeek的AI助手）和生态引流（如智能推荐书影音卡片），是产品的未来方向。</p>
+</li>
+<li><p>个性化设置类： 通过皮肤、音效、词库同步等功能满足用户自定义需求，增强长期使用的归属感。</p>
+</li>
+</ol>
+<h3 id="功能区"><a href="#功能区" class="headerlink" title="功能区"></a>功能区</h3><img src="/img/product/wechat/功能区01.jpg" alt="ai" style="width: 50%;">
+<img src="/img/product/wechat/功能区02.jpg" alt="ai" style="width: 50%;">
+
+<p>下图为微信输入法的主界面：<br><img src="/img/product/wechat/main.jpg" alt="main" style="width: 50%;"></p>
+<p>可以发现，微信团队将“问AI”放在了界面最下的一个大板块，并用团队基操的绿色进行高亮。接下来我将展开来说说每个板块的功能体验。</p>
+<h3 id="基础输入类"><a href="#基础输入类" class="headerlink" title="基础输入类"></a>基础输入类</h3><p>这是输入法作为工具的“本分”，是保障用户日常使用的基本盘。</p>
+<ul>
+<li><p>核心输入： 包含联想输入、模糊音处理、九宫格&#x2F;全键盘模式及繁简切换。</p>
+</li>
+<li><p>智能拼写： 这是一个预测型功能，能在输入过程中实时联想候选词，提升效率。</p>
+</li>
+<li><p>语音转文字： 这是各家标配，但微信输入法的亮点在于可以识别多种方言，扩大了可用性和准确率。</p>
+</li>
+<li><p>手写找字： 体验很细致，手机版支持手写多个字，并且会贴心地显示你想找的那个字的拼音，兼顾了输入和认字的需求。</p>
+</li>
+</ul>
+<h3 id="效率工具类"><a href="#效率工具类" class="headerlink" title="效率工具类"></a>效率工具类</h3><p>这是微信输入法的关键，能够很大提升用户体验感。</p>
+<ul>
+<li><p>跨设备同步 ：这是产品的核心亮点，到在 iOS 1.3 版本开始支持多端同步，通过软件方式解决了多年来厂商未能（或不愿）解决的硬件生态壁垒。这包含了剪贴板同步（跨设备复制粘贴）和个人词库同步（见模块四），极大提升了在PC（长文输入更便捷）和手机间切换的工作流效率。</p>
+</li>
+<li><p>快捷发送： 允许用户预设短语，一键发送，适合处理客服、常用语等场景。</p>
+</li>
+<li><p>计算器： 支持数字计算和日期格式转换，是工具属性的便捷延伸。</p>
+</li>
+</ul>
+<h3 id="智能辅助类"><a href="#智能辅助类" class="headerlink" title="智能辅助类"></a>智能辅助类</h3><p>这是产品的AI落地和生态引流的集中体现，也是作为AI产品经理最应关注的部分。</p>
+<ul>
+<li><p>AI 助手 ：</p>
+<ul>
+<li>版本迭代清晰：  1.2 版本桌面端是输入内容后按 &#x3D; 获取AI回答；而1.3 版本则正式接入了 DeepSeek 大模型。<ul>
+<li>根据分析微信输入法的版本更新日志，可以发现这个团队最开始是做了跨设备同步的功能，可见他们最开始是可能有这样的一个需求，就像飞书一样是先放在内部进行使用，后面再拓展产生的产品，而在ios的1.3.1的版本和macos的1.2.0的版本的时候，也就是2024年6月7月，他们都上线了获取ai问答功能，而就我们所知，chatgpt是在22年11月上线，在一年半以后微信团队开始在输入法展开ai的布局。</li>
+</ul>
+</li>
+<li>如今ai的功能已经接入deepseeek，试用以后发现其ai功能针对电脑和手机是不同的使用方式<ul>
+<li>对手机：有一个ai图标的按钮，点进去上面会显示一个会话框，叫问ai，可以直接在会话框里面向ai提问，ai会给出回答，如果你想和ai进行继续对话，点击“问ai“旁边按钮进入微信输入法这个应用进行连续对话。</li>
+<li>对电脑：键盘输入v，使用v功能会出现很多功能选项，选4，ai助手，有一个问ai的对话框，记录了所有你和他的对话记录，你可以继续询问。电脑版还可以在浏览器输入“问题“加“&#x3D;”会出来问ai的选项也可以问ai。</li>
+</ul>
+</li>
+<li>智能上下文： 它不仅能回答通用问题，甚至可以回答“微信输入法这个产品相关的问题”，说明AI助手与其自身的产品信息库是打通的，能给出更精确的回答。</li>
+</ul>
+</li>
+<li><p>智能推荐 ：</p>
+<ul>
+<li>智能推荐书影音： 这是连接微信生态的典型功能。输入关键词（书籍、影视）时，会自动弹出微信读书、QQ音乐、视频号等内容卡片，点击即可一键分享。</li>
+</ul>
+</li>
+<li><p>智能推荐情推荐：</p>
+<ul>
+<li><p>推荐表情： 根据文字自动推荐表情包（带笑脸）。</p>
+</li>
+<li><p>定制表情： 这是更精准的信息匹配。通过“你的话 + 你希望的人物”，将文字和图片结合，生成高度定制化的表情包。</p>
+</li>
+</ul>
+</li>
+<li><p>智能校对与翻译：</p>
+<ul>
+<li><p>拼写检查： 打错字也没关系，输入法会检查语义（而不只是词汇）来给出最符合用户意图的结果。</p>
+</li>
+<li><p>边写边译： 输入中文或英文，系统实时翻译，非常高效。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="个性化设置类"><a href="#个性化设置类" class="headerlink" title="个性化设置类"></a>个性化设置类</h3><p>这部分功能用以满足用户的个性化需求，提升长期使用的舒适度和归属感。</p>
+<ul>
+<li><p>视觉&#x2F;体感定制： 包括布局显示（皮肤&#x2F;主题更换）和按键效果（点击动效&#x2F;音效）。</p>
+</li>
+<li><p>数据同步： 个人词库跨设备更新。这个功能虽然是设置项，但它更是“效率工具”中跨设备同步的核心一环，它能保证用户在不同设备上的输入习惯和词库保持一致，极大增强了用户粘性。</p>
+</li>
+</ul>
+<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><p>结合我的体验与分析，微信输入法的战略意图清晰且多层：</p>
+<p>首先，它凭借核心的“多端同步”功能，打破了PC与移动端等不同设备间的硬件隔阂，将用户的工作流与体验深度绑定在微信生态内，以此显著提升用户粘性。</p>
+<p>其次，它利用输入法这一最高频的文本交互界面，作为AI助手（如“问AI”）的最佳落地载体，在极大降低AI使用门槛的同时，也为AI模型迭代提供了真实的反馈场景。</p>
+<p>最后，它通过“智能推荐”（如书影音卡片）等功能，在用户需求产生的源头，就将用户精准地导向微信读书、视频号等自有业务，构建了一个高效的生态内服务闭环。</p>
+<p>总的来说，微信输入通过多维度的功能整合，为用户提供了一个一站式的文本交互体验，也极大的降低了用户使用ai的门槛。</p>
+<p>回到我最开头提的那句话:</p>
+<p><strong>在AI时代，小小的输入法，正承载着怎样的大厂战略布局？</strong></p>
+<p>作为一个小小的大学生我不敢去揣测一个大厂的未来，但是作为用户，作为体验者来说，我能感受到微信团队在微信输入法上下的功夫。</p>
+<p>最好的AI，是让你几乎感觉不到它存在的AI。</p>
+<p>它争夺的，是我们每天在屏幕上刚冒出来的第一个念头。我们以后可能不再需要特地打开某个App去“使用AI”，而它会主动融入到我们打字、聊天、工作的每一个瞬间。输入法——它总是在那里，在我们需要的时候悄悄递上帮助，让我们的一切表达和需求都变得更简单、更顺畅。</p>
+<p>这才是我感受到的科技真正融入生活的样子。</p>
+<hr>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p>以下是我总结的macOS版本和iOS版本的大版本更替日志，作为我的分析支持</p>
+<p>macOS版和Windows版本大致同步，这里以macOS版本作为展示大版本的更替</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>版本号</strong></th>
+<th align="left"><strong>平台&#x2F;类型</strong></th>
+<th align="left"><strong>发布时间</strong></th>
+<th align="left"><strong>主要更新内容</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1.0.0</strong></td>
+<td align="left">iOS版</td>
+<td align="left">2023-11-01</td>
+<td align="left">跨设备粘贴，计算器，组合表情</td>
+</tr>
+<tr>
+<td align="left"><strong>1.1.0</strong></td>
+<td align="left">iOS版</td>
+<td align="left">2024-04-23</td>
+<td align="left">按「v」键使用V功能， 优化了日期、时间输入</td>
+</tr>
+<tr>
+<td align="left"><strong>1.2.0</strong></td>
+<td align="left">iOS版</td>
+<td align="left">2024-06-19</td>
+<td align="left">获取ai回答</td>
+</tr>
+<tr>
+<td align="left"><strong>1.3.0</strong></td>
+<td align="left">iOS版</td>
+<td align="left">2025-03-26</td>
+<td align="left">问 AI 已支持使用 DeepSeek-R1&#x2F;Hunyuan-T1 深度回答</td>
+</tr>
+<tr>
+<td align="left"><strong>1.4.0</strong></td>
+<td align="left">iOS版</td>
+<td align="left">2025-06-16</td>
+<td align="left">优化表达和边写边译功能</td>
+</tr>
+</tbody></table>
+<p>ios和安卓版本大致同步，这里以ios版本作为展示大版本的更替</p>
+<table>
+<thead>
+<tr>
+<th align="left">版本号</th>
+<th>平台&#x2F;类型</th>
+<th>发布时间</th>
+<th>主要更新内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">**1.0.5 **</td>
+<td>iOS</td>
+<td>2023-04-06</td>
+<td>持3种语言的边写边译：中译英&#x2F;日&#x2F;韩</td>
+</tr>
+<tr>
+<td align="left"><strong>1.1.0</strong></td>
+<td>iOS</td>
+<td>2023-06-28</td>
+<td>发颜文字，更多特殊符号，优化表达</td>
+</tr>
+<tr>
+<td align="left"><strong>1.2.0</strong></td>
+<td>iOS</td>
+<td>2023-11-13</td>
+<td>跨设备复制粘贴，输入框移动光标，上滑清空、下滑删除</td>
+</tr>
+<tr>
+<td align="left"><strong>1.3.0</strong></td>
+<td>iOS</td>
+<td>2024-05-27</td>
+<td>单机模式</td>
+</tr>
+<tr>
+<td align="left"><strong>1.3.1</strong></td>
+<td>iOS</td>
+<td>2024-07-11</td>
+<td>问ai功能</td>
+</tr>
+<tr>
+<td align="left"><strong>2.1.0</strong></td>
+<td>iOS</td>
+<td>2025-03-14</td>
+<td>问 AI 已支持使用 DeepSeek-R1&#x2F;Hunyuan-T1 生成深度回答</td>
+</tr>
+<tr>
+<td align="left"><strong>2.2.0</strong></td>
+<td>iOS</td>
+<td>2025-05-12</td>
+<td>文字生图片</td>
+</tr>
+<tr>
+<td align="left"><strong>2.2.2</strong></td>
+<td>iOS</td>
+<td>2025-06-20</td>
+<td>快捷分享书影音、小程序、公众号</td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://sanlili.github.io">菲菲</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://sanlili.github.io/2025/10/28/%E5%BE%AE%E4%BF%A1%E8%BE%93%E5%85%A5%E6%B3%95%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A/">https://sanlili.github.io/2025/10/28/%E5%BE%AE%E4%BF%A1%E8%BE%93%E5%85%A5%E6%B3%95%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://sanlili.github.io" target="_blank">菲菲的博客</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/product/wechat/main.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/10/25/hello-world/" title="Hello World"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Hello World</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post$ hexo new &quot;My New Post&quot;  More info: Writing Run server$ hexo server  More info: Server 666 Generate static files$ hexo generate  More info: Generating Deploy to remote sites$ hexo deploy  More info: Deployment </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/./img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">菲菲</div><div class="author-info-description">菲菲的博客，欢迎访问</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/fayfi" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:ive.fly.feifei@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到sanlili的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E4%BF%A1%E8%BE%93%E5%85%A5%E6%B3%95%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A"><span class="toc-number">1.</span> <span class="toc-text">微信输入法体验报告</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A7%E5%93%81%E8%83%8C%E6%99%AF"><span class="toc-number">1.1.</span> <span class="toc-text">产品背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%82%E5%9C%BA%E4%B8%8E%E7%94%A8%E6%88%B7%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">市场与用户分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.2.1.</span> <span class="toc-text">商业模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E7%94%A8%E6%88%B7"><span class="toc-number">1.2.2.</span> <span class="toc-text">目标用户</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A7%E5%93%81%E5%8A%9F%E8%83%BD%E4%B8%8E%E4%BA%A4%E4%BA%92%E4%BD%93%E9%AA%8C"><span class="toc-number">1.3.</span> <span class="toc-text">产品功能与交互体验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%8C%BA"><span class="toc-number">1.3.1.</span> <span class="toc-text">功能区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%BE%93%E5%85%A5%E7%B1%BB"><span class="toc-number">1.3.2.</span> <span class="toc-text">基础输入类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">1.3.3.</span> <span class="toc-text">效率工具类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E8%BE%85%E5%8A%A9%E7%B1%BB"><span class="toc-number">1.3.4.</span> <span class="toc-text">智能辅助类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE%E7%B1%BB"><span class="toc-number">1.3.5.</span> <span class="toc-text">个性化设置类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="toc-number">1.4.</span> <span class="toc-text">我的思考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number">1.5.</span> <span class="toc-text">附录</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/10/28/%E5%BE%AE%E4%BF%A1%E8%BE%93%E5%85%A5%E6%B3%95%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A/" title="微信输入法体验报告"><img src="/img/product/wechat/main.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微信输入法体验报告"/></a><div class="content"><a class="title" href="/2025/10/28/%E5%BE%AE%E4%BF%A1%E8%BE%93%E5%85%A5%E6%B3%95%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A/" title="微信输入法体验报告">微信输入法体验报告</a><time datetime="2025-10-28T13:48:08.808Z" title="发表于 2025-10-28 21:48:08">2025-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/25/hello-world/" title="Hello World"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2025/10/25/hello-world/" title="Hello World">Hello World</a><time datetime="2025-10-25T15:51:18.969Z" title="发表于 2025-10-25 23:51:18">2025-10-25</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2025 By 菲菲</span></div><div class="footer_custom_text">很高兴认识你😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
