@@ -1,0 +1,446 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论 | 菲菲的博客</title><meta name="author" content="菲菲"><meta name="copyright" content="菲菲"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论用deepseek对FLAME和Fin-Eva这两个金融领域大模型评测集进行对比分析并总结得出通用方法论。 引用： https:&#x2F;&#x2F;github.com&#x2F;alipay&#x2F;financial_evaluation_dataset https:&#x2F;&#x2F;github.com&#x2F;FLAME-ruc&#x2F;FLAME 对比核心定位与背景   维度 FLA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论">
+<meta property="og:url" content="https://sanlili.github.io/2025/11/02/FLAME%E5%92%8CFin-Eva%E9%87%91%E8%9E%8D%E9%A2%86%E5%9F%9F%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E9%9B%86%E7%9A%84%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90%E5%8F%8A%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%BA/index.html">
+<meta property="og:site_name" content="菲菲的博客">
+<meta property="og:description" content="FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论用deepseek对FLAME和Fin-Eva这两个金融领域大模型评测集进行对比分析并总结得出通用方法论。 引用： https:&#x2F;&#x2F;github.com&#x2F;alipay&#x2F;financial_evaluation_dataset https:&#x2F;&#x2F;github.com&#x2F;FLAME-ruc&#x2F;FLAME 对比核心定位与背景   维度 FLA">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://sanlili.github.io/img/product/test/comparance.png">
+<meta property="article:published_time" content="2025-11-02T14:15:20.401Z">
+<meta property="article:modified_time" content="2025-11-02T14:21:52.015Z">
+<meta property="article:author" content="菲菲">
+<meta property="article:tag" content="菲菲,博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sanlili.github.io/img/product/test/comparance.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论",
+  "url": "https://sanlili.github.io/2025/11/02/FLAME%E5%92%8CFin-Eva%E9%87%91%E8%9E%8D%E9%A2%86%E5%9F%9F%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E9%9B%86%E7%9A%84%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90%E5%8F%8A%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%BA/",
+  "image": "https://sanlili.github.io/img/product/test/comparance.png",
+  "datePublished": "2025-11-02T14:15:20.401Z",
+  "dateModified": "2025-11-02T14:21:52.015Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "菲菲",
+      "url": "https://sanlili.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://sanlili.github.io/2025/11/02/FLAME%E5%92%8CFin-Eva%E9%87%91%E8%9E%8D%E9%A2%86%E5%9F%9F%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E9%9B%86%E7%9A%84%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90%E5%8F%8A%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%BA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 菲菲","link":"链接: ","source":"来源: 菲菲的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.0.0"></head><body><div id="web_bg" style="background-image: url(/url(/img/bg.jpg));"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/./img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/product/test/comparance.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">菲菲的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-11-02T14:15:20.401Z" title="发表于 2025-11-02 22:15:20">2025-11-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-02T14:21:52.015Z" title="更新于 2025-11-02 22:21:52">2025-11-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%A7%E5%93%81/">产品</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论"><a href="#FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论" class="headerlink" title="FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论"></a><strong>FLAME</strong>和<strong>Fin-Eva</strong>金融领域大模型评测集的对比分析及通用方法论</h1><p>用deepseek对<strong>FLAME</strong>和<strong>Fin-Eva</strong>这两个金融领域大模型评测集进行对比分析并总结得出通用方法论。</p>
+<p>引用：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alipay/financial_evaluation_dataset">https://github.com/alipay/financial_evaluation_dataset</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/FLAME-ruc/FLAME">https://github.com/FLAME-ruc/FLAME</a></p>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><h3 id="核心定位与背景"><a href="#核心定位与背景" class="headerlink" title="核心定位与背景"></a><strong>核心定位与背景</strong></h3><table>
+<thead>
+<tr>
+<th align="left">维度</th>
+<th align="left">FLAME</th>
+<th align="left">Fin-Eva</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>主导机构</strong></td>
+<td align="left">学术界（中国人民大学财政金融学院）</td>
+<td align="left">产业界+学术界（蚂蚁集团 + 上海财经大学）</td>
+</tr>
+<tr>
+<td align="left"><strong>核心定位</strong></td>
+<td align="left"><strong>体系化、场景驱动</strong>的金融大模型综合评估基准</td>
+<td align="left"><strong>专业化、任务驱动</strong>的金融能力标准化测试集</td>
+</tr>
+<tr>
+<td align="left"><strong>设计哲学</strong></td>
+<td align="left">模拟<strong>金融业务全流程</strong>，强调知识与应用并重</td>
+<td align="left">聚焦<strong>核心金融能力</strong>的量化衡量，强调可复现与自动化</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="评估框架与结构"><a href="#评估框架与结构" class="headerlink" title="评估框架与结构"></a><strong>评估框架与结构</strong></h3><h4 id="1-评估维度设计"><a href="#1-评估维度设计" class="headerlink" title="1. 评估维度设计"></a>1. <strong>评估维度设计</strong></h4><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">FLAME</th>
+<th align="left">Fin-Eva</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>核心架构</strong></td>
+<td align="left"><strong>两大模块</strong>： 1. <strong>FLAME-Cer</strong>（知识认证） 2. <strong>FLAME-Sce</strong>（场景应用）</td>
+<td align="left"><strong>两大来源</strong>： 1. <strong>蚂蚁部分</strong>（5大能力） 2. <strong>上财部分</strong>（4大学科）</td>
+</tr>
+<tr>
+<td align="left"><strong>知识评估</strong></td>
+<td align="left"><strong>覆盖14类金融证书</strong>（如CPA、CFA、FRM） • <strong>非平均分布</strong>（按重要性分级） • 题目<strong>有难度梯度</strong></td>
+<td align="left"><strong>覆盖4大金融相关学科</strong> • 包含<strong>证书考试真题</strong> • 题目<strong>按学科领域</strong>划分</td>
+</tr>
+<tr>
+<td align="left"><strong>应用评估</strong></td>
+<td align="left"><strong>三级场景架构</strong>： • 10个一级场景 • 21个二级场景 • 近百个三级任务 • <strong>高度贴近业务</strong></td>
+<td align="left"><strong>五大能力维度</strong>： • 金融认知、知识、逻辑、生成、安全 • <strong>更偏向能力拆解</strong></td>
+</tr>
+</tbody></table>
+<h4 id="2-题型与评估方法"><a href="#2-题型与评估方法" class="headerlink" title="2. 题型与评估方法"></a>2. <strong>题型与评估方法</strong></h4><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">FLAME</th>
+<th align="left">Fin-Eva</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>FLAME-Cer &#x2F; Fin-Eva主体</strong></td>
+<td align="left"><strong>单选题</strong>（客观题）</td>
+<td align="left"><strong>全部为单选题</strong>（客观题）</td>
+</tr>
+<tr>
+<td align="left"><strong>FLAME-Sce</strong></td>
+<td align="left"><strong>复杂主观题</strong> （简答、计算、分析、生成等）</td>
+<td align="left"><strong>不涉及</strong>（专注于客观题）</td>
+</tr>
+<tr>
+<td align="left"><strong>评分机制</strong></td>
+<td align="left"><strong>双轨制</strong>： • Cer：<strong>准确率</strong> • Sce：<strong>多维度加权评分</strong>（-1~5分）</td>
+<td align="left"><strong>统一准确率</strong> （因全为单选题）</td>
+</tr>
+<tr>
+<td align="left"><strong>自动化程度</strong></td>
+<td align="left">场景部分<strong>需人工或强AI评分</strong></td>
+<td align="left"><strong>全自动化</strong>评估</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="数据构建与运营模式"><a href="#数据构建与运营模式" class="headerlink" title="数据构建与运营模式"></a><strong>数据构建与运营模式</strong></h3><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">FLAME</th>
+<th align="left">Fin-Eva</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>数据来源</strong></td>
+<td align="left">权威认证考试真题（经人工审核）</td>
+<td align="left">蚂蚁：业务数据+公开数据（脱敏、改写） 上财：原创试题（基于考试大纲）</td>
+</tr>
+<tr>
+<td align="left"><strong>数据公开策略</strong></td>
+<td align="left"><strong>Cer</strong>：开放部分样例 <strong>Sce</strong>：<strong>仅公开框架，不公开具体案例</strong>（出于公平性与安全性）</td>
+<td align="left"><strong>Dev&#x2F;Test集分离</strong>： • <strong>Dev（白盒）</strong>：28%，含答案 • <strong>Test（黑盒）</strong>：72%，无答案 <strong>完全开源</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>Prompt工程</strong></td>
+<td align="left">未特别强调</td>
+<td align="left"><strong>为每个子任务定制了Prompt模板</strong>，以激发模型最优表现</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="核心差异与适用场景"><a href="#核心差异与适用场景" class="headerlink" title="核心差异与适用场景"></a><strong>核心差异与适用场景</strong></h3><p>为了更直观地展示两者的核心差异与适用场景，绘制了以下对比图：</p>
+<img src="/img/product/test/comparance.png" alt="ai" style="width: 80%;">
+
+<h4 id="1-FLAME"><a href="#1-FLAME" class="headerlink" title="1. FLAME"></a>1. FLAME</h4><ul>
+<li><strong>优势</strong>：<strong>体系完整</strong>，尤其长于对模型在<strong>复杂、真实业务场景</strong>下综合能力的深度评估。它的场景库（Sce）是其在垂直领域评估中最大的亮点和壁垒。</li>
+<li><strong>局限</strong>：场景评估部分<strong>自动化程度低</strong>，实施成本高，且出于保密性，无法完全公开，复现难度大。</li>
+<li><strong>适用场景</strong>：<ul>
+<li>金融机构内部的<strong>模型选型与验收</strong>。</li>
+<li>追求模型在<strong>真实业务中可用性</strong>的深度研究。</li>
+<li>作为行业公认的<strong>高标准综合能力基准</strong>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-Fin-Eva"><a href="#2-Fin-Eva" class="headerlink" title="2. Fin-Eva"></a>2. Fin-Eva</h4><ul>
+<li><strong>优势</strong>：<strong>标准化、自动化程度高</strong>，全部单选题使其非常适合大规模、可复现的模型能力<strong>快速迭代和横向对比</strong>。开源策略友好。</li>
+<li><strong>局限</strong>：<strong>无法评估复杂的生成式、推理式任务</strong>，对模型在真实业务中“动手能力”的测量不足。</li>
+<li><strong>适用场景</strong>：<ul>
+<li>模型研发阶段的<strong>能力快速摸底与迭代</strong>。</li>
+<li>学术研究需要<strong>公平、可复现</strong>的基准。</li>
+<li>作为<strong>自动化流水线</strong>中的一部分，进行常态化能力监测。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-综合对比"><a href="#3-综合对比" class="headerlink" title="3. 综合对比"></a>3. 综合对比</h4><ul>
+<li><strong>FLAME</strong>：<strong>体系完整</strong>，尤其长于对模型在<strong>复杂、真实业务场景</strong>下综合能力的深度评估。</li>
+<li><strong>Fin-Eva</strong>：<strong>标准化、自动化程度高</strong>，全部单选题使其非常适合大规模、可复现的模型能力<strong>快速迭代和横向对比</strong>。</li>
+</ul>
+<h2 id="启垂直行业评估体系的通用方法论"><a href="#启垂直行业评估体系的通用方法论" class="headerlink" title="启垂直行业评估体系的通用方法论"></a>启垂直行业评估体系的通用方法论</h2><p>综合两者，可以提炼出一套“的通用评估体系构建方法论：</p>
+<ul>
+<li><strong>知识基础</strong>：采用Fin-Eva模式，覆盖行业核心知识点，实现<strong>自动化、低成本</strong>的基准测试。</li>
+<li><strong>应用深度</strong>：构建 FLAME-Sce模式，用复杂任务评估模型的<strong>真实业务处理能力</strong>，体现评估深度。</li>
+<li><strong>安全合规</strong>：设立 <strong>“安全与合规”</strong>，这是垂直行业模型落地的基础。</li>
+</ul>
+<h3 id="评估架构设计：三大核心模块"><a href="#评估架构设计：三大核心模块" class="headerlink" title="评估架构设计：三大核心模块"></a><strong>评估架构设计：三大核心模块</strong></h3><p>一个完整的行业评估体系应由三个相互独立又关联的模块构成：</p>
+<p><strong>1. 专业知识评估模块</strong></p>
+<ul>
+<li><strong>目标</strong>：量化评估模型对行业专业知识的掌握程度</li>
+<li><strong>方法</strong>：<ul>
+<li>构建标准化试题库，来源包括：行业资格认证考试、专业教材、标准规范</li>
+<li>题型以单选题为主，确保评估的客观性和可复现性</li>
+<li>题目分布按知识点重要性和业务相关性进行加权，非平均分配</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. 业务场景评估模块</strong></p>
+<ul>
+<li><strong>目标</strong>：评估模型在真实业务环境中的问题解决能力</li>
+<li><strong>方法</strong>：<ul>
+<li>建立三级场景体系：核心业务领域→细分业务环节→具体应用任务</li>
+<li>设计复杂任务类型：生成、推理、计算、分析等主观题型</li>
+<li>针对不同任务类型制定差异化的评估标准</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. 安全合规评估模块</strong></p>
+<ul>
+<li><strong>目标</strong>：确保模型输出符合行业规范和伦理要求</li>
+<li><strong>方法</strong>：<ul>
+<li>构建专项测试用例库，覆盖数据安全、业务合规、风险控制等维度</li>
+<li>采用对抗性测试方法，主动探测模型的边界和弱点</li>
+</ul>
+</li>
+</ul>
+<h3 id="评估维度体系"><a href="#评估维度体系" class="headerlink" title="评估维度体系"></a><strong>评估维度体系</strong></h3><p>建立可配置的评估维度库，根据不同任务特点进行维度选择和权重配置：</p>
+<table>
+<thead>
+<tr>
+<th align="left">评估维度</th>
+<th align="left">具体含义</th>
+<th align="left">适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">准确性</td>
+<td align="left">信息、数据、结论的正确程度</td>
+<td align="left">所有场景</td>
+</tr>
+<tr>
+<td align="left">完整性</td>
+<td align="left">关键要点的覆盖全面性</td>
+<td align="left">摘要、分析、生成类任务</td>
+</tr>
+<tr>
+<td align="left">专业性</td>
+<td align="left">行业术语、规则、洞察的运用</td>
+<td align="left">所有专业场景</td>
+</tr>
+<tr>
+<td align="left">逻辑性</td>
+<td align="left">推理过程的严谨性和条理性</td>
+<td align="left">分析、推理类任务</td>
+</tr>
+<tr>
+<td align="left">清晰性</td>
+<td align="left">表达的明确性和结构层次</td>
+<td align="left">生成、解释类任务</td>
+</tr>
+<tr>
+<td align="left">实用性</td>
+<td align="left">方案的可操作性和业务价值</td>
+<td align="left">建议、规划类任务</td>
+</tr>
+<tr>
+<td align="left">合规性</td>
+<td align="left">符合行业法规和标准</td>
+<td align="left">所有场景，特别是风控场景</td>
+</tr>
+<tr>
+<td align="left">指令遵循度</td>
+<td align="left">对格式、风格等要求的满足程度</td>
+<td align="left">所有场景</td>
+</tr>
+</tbody></table>
+<h3 id="评分机制设计"><a href="#评分机制设计" class="headerlink" title="评分机制设计"></a><strong>评分机制设计</strong></h3><p><strong>1. 分级评分体系</strong></p>
+<ul>
+<li>采用-1到5分的六级评分制</li>
+<li>5分：完全满足要求，表现优秀</li>
+<li>3-4分：基本满足要求，存在轻微缺陷</li>
+<li>1-2分：存在明显问题，但有一定相关性</li>
+<li>-1分：严重违反基本要求（如安全合规问题）</li>
+</ul>
+<p><strong>2. 权重配置机制</strong></p>
+<ul>
+<li>根据不同任务类型的特点，为各评估维度配置差异化权重</li>
+<li>权重总和为100%，反映各维度的相对重要性</li>
+<li>示例：摘要任务中准确性(30%)+完整性(30%)+清晰性(20%)+实用性(20%)</li>
+</ul>
+<p><strong>3. 可用性判定标准</strong></p>
+<ul>
+<li>基础任务：加权得分≥3分判定为可用</li>
+<li>关键任务：加权得分≥4分判定为可用</li>
+<li>任一维度得-1分时，整体判定为不可用</li>
+</ul>
+<h3 id="数据构建与管理"><a href="#数据构建与管理" class="headerlink" title="数据构建与管理"></a><strong>数据构建与管理</strong></h3><p><strong>1. 数据来源策略</strong></p>
+<ul>
+<li>专业知识模块：行业标准题库、认证考试真题</li>
+<li>业务场景模块：真实业务案例脱敏、专家构造用例</li>
+<li>安全合规模块：法规要求转化、风险场景构造</li>
+</ul>
+<p><strong>2. 数据公开策略</strong></p>
+<ul>
+<li>开发集：包含题目和答案，用于理解评估标准和方法</li>
+<li>测试集：不公开答案，确保评估的公平性和有效性</li>
+<li>敏感信息：业务场景细节和含敏感数据的内容不公开</li>
+</ul>
+<p><strong>3. 提示词标准化</strong></p>
+<ul>
+<li>为不同任务类型设计标准化的指令模板</li>
+<li>明确角色定位、任务要求、输出格式</li>
+<li>确保评估条件的一致性</li>
+</ul>
+<h3 id="实施与迭代"><a href="#实施与迭代" class="headerlink" title="实施与迭代"></a><strong>实施与迭代</strong></h3><p><strong>1. 评估执行流程</strong></p>
+<ul>
+<li>自动化评估：专业知识模块采用全自动化评分</li>
+<li>人机协同评估：业务场景模块采用模型初评+专家审核</li>
+<li>专项评估：安全合规模块进行定期专项测试</li>
+</ul>
+<p><strong>2. 结果分析应用</strong></p>
+<ul>
+<li>横向对比：与行业领先模型进行能力对比</li>
+<li>纵向分析：识别模型在具体维度和场景下的强弱项</li>
+<li>迭代指导：为模型优化提供明确的改进方向</li>
+</ul>
+<p><strong>3. 体系持续演进</strong></p>
+<ul>
+<li>定期更新题库和场景，反映行业发展和需求变化</li>
+<li>根据模型能力进步动态调整评估标准和难度</li>
+<li>建立行业共建机制，汇聚专业知识和实践经验</li>
+</ul>
+<hr>
+<h3 id="成功要素"><a href="#成功要素" class="headerlink" title="成功要素"></a><strong>成功要素</strong></h3><ol>
+<li><strong>专业性与实用性的平衡</strong>：既要评估专业知识掌握，也要考察实际应用能力</li>
+<li><strong>标准化与定制化的结合</strong>：建立统一框架的同时允许按场景差异化配置</li>
+<li><strong>效率与深度的兼顾</strong>：通过自动化提高效率，通过精细评估保证深度</li>
+<li><strong>公平性与安全性的保障</strong>：通过合理的公开策略确保公平，通过严格测试保障安全</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://sanlili.github.io">菲菲</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://sanlili.github.io/2025/11/02/FLAME%E5%92%8CFin-Eva%E9%87%91%E8%9E%8D%E9%A2%86%E5%9F%9F%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E9%9B%86%E7%9A%84%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90%E5%8F%8A%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%BA/">https://sanlili.github.io/2025/11/02/FLAME%E5%92%8CFin-Eva%E9%87%91%E8%9E%8D%E9%A2%86%E5%9F%9F%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E9%9B%86%E7%9A%84%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90%E5%8F%8A%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://sanlili.github.io" target="_blank">菲菲的博客</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/product/test/comparance.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/11/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%8C%E8%BF%98%E6%98%AF%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%EF%BC%9F/" title="动态规划，还是贪心算法？"><img class="cover" src="/img/suibi/tanxin.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">动态规划，还是贪心算法？</div></div><div class="info-2"><div class="info-item-1">动态规划，还是贪心算法？ 常听人说，人生要善用“动态规划”，而警惕“贪心算法”——切莫因眼前小利，失了长远大局。 可什么才是“小利”，什么才算“大局”？ 这答案因人而异。让人开心的点和事各不相同，世俗推崇的“好”，固然是前人踩坑后总结的经验，但未必是唯一的标准。我们常羡慕别人：优秀的工作、和睦的家庭、知心的朋友……这些我自然也向往。 但下一个问题是：你愿意为此付出什么？又能付出什么？ **世界从不完美，想要获取，必先耕耘。**若想期末获得高绩点，我便需牺牲闲暇，埋首书海；若想毕业求得一份好工作，我就得放弃安逸，去积累实习经历。 看，答案似乎总是“时间”。**我们必须投入时间去做事，去创造价值，而不能只沉溺于享受与消费。**对于一个追求发展的个体乃至国家而言，这种“生产者”心态，一种主动去贡献、去创造的自觉，或许正是时代所呼唤的风气。 那么，这一切与“动态规划”和“贪心算法”何干？ 让我们回归这两个词的本意：  贪心算法：在每一步都做出当前最优的选择，期盼最终达成全局最优。 动态规划：将大问题拆解为小问题，记录每个子问题的解，从而高效攻克整体。  若将人生代入，理想的状态似乎是：用...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/./img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">菲菲</div><div class="author-info-description">菲菲的博客，欢迎访问</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/fayfi" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:ive.fly.feifei@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到sanlili的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FLAME%E5%92%8CFin-Eva%E9%87%91%E8%9E%8D%E9%A2%86%E5%9F%9F%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E9%9B%86%E7%9A%84%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90%E5%8F%8A%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94"><span class="toc-number">1.1.</span> <span class="toc-text">对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%AE%9A%E4%BD%8D%E4%B8%8E%E8%83%8C%E6%99%AF"><span class="toc-number">1.1.1.</span> <span class="toc-text">核心定位与背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E6%A1%86%E6%9E%B6%E4%B8%8E%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">评估框架与结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%AF%84%E4%BC%B0%E7%BB%B4%E5%BA%A6%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">1. 评估维度设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%A2%98%E5%9E%8B%E4%B8%8E%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">2. 题型与评估方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%9E%84%E5%BB%BA%E4%B8%8E%E8%BF%90%E8%90%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.3.</span> <span class="toc-text">数据构建与运营模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%B7%AE%E5%BC%82%E4%B8%8E%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.1.4.</span> <span class="toc-text">核心差异与适用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-FLAME"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">1. FLAME</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Fin-Eva"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">2. Fin-Eva</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%BB%BC%E5%90%88%E5%AF%B9%E6%AF%94"><span class="toc-number">1.1.4.3.</span> <span class="toc-text">3. 综合对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%9E%82%E7%9B%B4%E8%A1%8C%E4%B8%9A%E8%AF%84%E4%BC%B0%E4%BD%93%E7%B3%BB%E7%9A%84%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%BA"><span class="toc-number">1.2.</span> <span class="toc-text">启垂直行业评估体系的通用方法论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%EF%BC%9A%E4%B8%89%E5%A4%A7%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97"><span class="toc-number">1.2.1.</span> <span class="toc-text">评估架构设计：三大核心模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E7%BB%B4%E5%BA%A6%E4%BD%93%E7%B3%BB"><span class="toc-number">1.2.2.</span> <span class="toc-text">评估维度体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E5%88%86%E6%9C%BA%E5%88%B6%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.2.3.</span> <span class="toc-text">评分机制设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.4.</span> <span class="toc-text">数据构建与管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%96%BD%E4%B8%8E%E8%BF%AD%E4%BB%A3"><span class="toc-number">1.2.5.</span> <span class="toc-text">实施与迭代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%90%E5%8A%9F%E8%A6%81%E7%B4%A0"><span class="toc-number">1.2.6.</span> <span class="toc-text">成功要素</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/11/02/FLAME%E5%92%8CFin-Eva%E9%87%91%E8%9E%8D%E9%A2%86%E5%9F%9F%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E9%9B%86%E7%9A%84%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90%E5%8F%8A%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%BA/" title="FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论"><img src="/img/product/test/comparance.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论"/></a><div class="content"><a class="title" href="/2025/11/02/FLAME%E5%92%8CFin-Eva%E9%87%91%E8%9E%8D%E9%A2%86%E5%9F%9F%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AF%84%E6%B5%8B%E9%9B%86%E7%9A%84%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90%E5%8F%8A%E9%80%9A%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%BA/" title="FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论">FLAME和Fin-Eva金融领域大模型评测集的对比分析及通用方法论</a><time datetime="2025-11-02T14:15:20.401Z" title="发表于 2025-11-02 22:15:20">2025-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%8C%E8%BF%98%E6%98%AF%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%EF%BC%9F/" title="动态规划，还是贪心算法？"><img src="/img/suibi/tanxin.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="动态规划，还是贪心算法？"/></a><div class="content"><a class="title" href="/2025/11/02/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%8C%E8%BF%98%E6%98%AF%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%EF%BC%9F/" title="动态规划，还是贪心算法？">动态规划，还是贪心算法？</a><time datetime="2025-11-01T16:06:29.468Z" title="发表于 2025-11-02 00:06:29">2025-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/30/%E5%A4%9A%E6%AC%BE%E8%BE%93%E5%85%A5%E6%B3%95%E5%AF%B9%E6%AF%94/" title="无标题"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无标题"/></a><div class="content"><a class="title" href="/2025/10/30/%E5%A4%9A%E6%AC%BE%E8%BE%93%E5%85%A5%E6%B3%95%E5%AF%B9%E6%AF%94/" title="无标题">无标题</a><time datetime="2025-10-29T16:47:01.102Z" title="发表于 2025-10-30 00:47:01">2025-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/28/%E5%BE%AE%E4%BF%A1%E8%BE%93%E5%85%A5%E6%B3%95%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A/" title="微信输入法体验报告"><img src="/img/product/wechat/main.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微信输入法体验报告"/></a><div class="content"><a class="title" href="/2025/10/28/%E5%BE%AE%E4%BF%A1%E8%BE%93%E5%85%A5%E6%B3%95%E4%BD%93%E9%AA%8C%E6%8A%A5%E5%91%8A/" title="微信输入法体验报告">微信输入法体验报告</a><time datetime="2025-10-28T13:48:08.808Z" title="发表于 2025-10-28 21:48:08">2025-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/10/25/hello-world/" title="Hello World"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2025/10/25/hello-world/" title="Hello World">Hello World</a><time datetime="2025-10-25T15:51:18.969Z" title="发表于 2025-10-25 23:51:18">2025-10-25</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2025 By 菲菲</span></div><div class="footer_custom_text">很高兴认识你😜</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
